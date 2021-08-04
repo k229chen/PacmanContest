@@ -26,7 +26,7 @@ https://youtu.be/YkFUq0y_gEs
 * Siyu Bian - [siyub@student.unimelb.edu.au](mailto:siyub@student.unimelb.edu.au) - 984002
 * Weilun Chen - [weilun.chen@student.unimelb.edu.au](mailto:weilun.chen@student.unimelb.edu.au) - 960043
 
-# Pacman Contest Description
+# Pacman_Contest_Description
 
 The purpose of this project is to implement a Pac Man Autonomous Agent that can play and compete in a tournament. There are two agents implemented in the project: the offensive agent and the defensive agent. The general strategy of the offensive agent is made by a hard-coded decision tree. There are three q-learning models in the offensive agent, and each q-learning is used for the particular subtask made by the decision tree. While the task of the defensive is simple. The only thing it needs to do is preventing ghosts eating dots.
 
