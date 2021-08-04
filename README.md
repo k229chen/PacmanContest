@@ -1,12 +1,12 @@
-# UoM COMP90054 Contest Project
+# UoM Pacman Contest Project
 
 This Wiki can be used as external documentation to the project.
-- [1. Home](/home)
+- [1. Home](#home)
 - [2. Pacman contest description](#2_design_decision_made)
-- [3. Approaches](/3_approaches)
+- [3. Approaches](#3. Approaches)
     - 3.1 Approximate Q-learning
     - 3.2 A star
-- [4. Comparison tables](#4_comparison_tables)
+- [4. Comparison tables](#4. Comparison tables)
 
 
 
