@@ -2,7 +2,7 @@
 
 This Wiki can be used as external documentation to the project.
 - [1. Home](#home)
-- [2. Pacman contest description](#Pacman Contest Description)
+- [2. Pacman contest description](#Pacman_Contest_Description)
 - [3. Approaches](#3. Approaches)
     - 3.1 Approximate Q-learning
     - 3.2 A star
