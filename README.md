@@ -6,13 +6,8 @@ This Wiki can be used as external documentation to the project.
 - [3. Approaches](/3_approaches)
     - 3.1 Approximate Q-learning
     - 3.2 A star
-- [4. Challenges](/4_challenges)
-    - 4.1 Approximate Q-learning
-    - 4.2 Improvement
-- [5. Possible improvements](/5_possible_improvements)
-- [6. Comparison tables](/6_comparison_tables)
+- [4. Comparison tables](/6_comparison_tables)
 
-[Next Page ](/2_design_decision_made)
 
 
 
@@ -77,3 +72,88 @@ For example, if the agent wants to eat food, it only considers:
 * How far is the closest dot (distanceToFood)
 * did I stopped (stop)
 * should I reverse for dots in another area (reverse)
+
+
+# 4. Comparison tables
+
+## 4.1 Demo
+----
+
+Three different maps are selected to analyse the performance of our agents. Every map contains 30 dots in each team.
+
+### map_RANDOM4854
+
+#### Competition results: 11 points
+
+| | eat | deposit | defence | loss |
+| ------ | ------ | ------ | ------ | ------ |
+| Offensive vs. staff_team_top | 22 | 11 | \ | \ |
+| Defensive vs. staff_team_top | \ | \ | 0 | 0 |
+
+#### Approximate Q-learning
+![demo_4854](uploads/028b614a2ae71a8dbba983007dc7a0f7/demo_4854.gif)
+
+Although the offensive ate 22 dots, our team only wins by 11 points. The main reason is that the offensive contains 11 dots but was cornered by a ghost. The ghost swings with our agent instead of killing it. This wasted a lot of time, resulting in that our offensive not only could not deposit dots in our home but also could not eat more dots. This situation could happen on many maps which contain many corners. \
+The decision tree may need improvement to encourage the offensive agent to return home when it's carrying lots of dots.
+
+----
+### map_RANDOM6992
+
+#### Competition results: 21 points
+
+| | eat | deposit | defence | loss |
+| ------ | ------ | ------ | ------ | ------ |
+| Offensive vs. staff_team_top | 25 | 25 | \ | \ |
+| Defensive vs. staff_team_top | \ | \ | 0 | 4 |
+
+#### Approximate Q-learning
+![demo_6992](uploads/c4b38a2ba87c1e9b058da3261d0f21c4/demo_6992.gif)
+
+Our agents perform well on this kind of map which contains many straight walls and most dots are around these walls, because of the “one step away” feature mentioned above. The offensive could get out of the swing situation with the defensive ghost around a wall and then keep eating dots. Also, it chooses not to go into the corner even there are dots there
+
+#### A star
+![demo_6992_2](uploads/d4890cac7032a95cc1db2b148a557704/demo_6992_2.gif)
+
+The defensive agent simply finds the shortest path to chase the invader with most dots. Despite its simplicity, it is quite efficient in pre-competition. Most agents in the competition can be caught in some corners. However, it has difficulty catching agents like our offensive agent which can detect corners and takes the 'one-step-away' feature into consideration. However, it is possible to prevent them from depositing dots by understanding the intention of the agent. Instead of closely chasing them, the offensive agent can wander around the mandatory path to home.
+
+
+----
+### map_RANDOM9706
+
+#### Competition results: 11 points
+
+| | eat | deposit | defence | loss |
+| ------ | ------ | ------ | ------ | ------ |
+| Offensive vs. staff_team_top | 11 | 11 | \ | \ |
+| Defensive vs. staff_team_top | \ | \ | 6 | 0 |
+
+#### Approximate Q-learning
+![9706](uploads/92d1e19d87cf5b16a1efa812fa7d7cef/9706.gif)
+
+On this map, two entrances are far away. One challenge of approximate Q-learning noted above is that it is impossible for it to learn detour in limited time. When the offensive swings with ghosts around one entrance, it could not realise that there is another entrance. If this happens at the beginning of a tournament, our team has little hope of winning. As far as we know, there are no features that can model an alternative path to the goal.
+
+#### A star
+![demo_9706_2](uploads/f986c1fb79a7d2563b5abdf1f10297b9/demo_9706_2.gif)
+
+As discussed above, most offensive agents can be captured by chasing the shortest path to the enemy.
+
+----
+## 4.2 Conclusion
+----
+
+Offensive Agent: \
+Pros: 
+* agent has learned a sophisticated way to detect good path to run away
+* agent has learned how to use a capsule to maximize the time of eating food 
+
+Cons:
+* strategies made by decision tree need further improved
+* agent has no clue to change an alternative path while the path is blocked by enemy agents
+
+Defensive Agent: \
+Pros: 
+* A* requires little computing power because the job is divided into small tasks
+* effective to handle the majority of enemy offensive agents 
+
+Cons:
+* not good at capturing advanced enemy invaders
