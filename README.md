@@ -3,10 +3,10 @@
 This Wiki can be used as external documentation to the project.
 - [1. Home](#home)
 - [2. Pacman contest description](#Pacman_Contest_Description)
-- [3. Approaches](#3. Approaches)
+- [3. Approaches](#Approaches)
     - 3.1 Approximate Q-learning
     - 3.2 A star
-- [4. Comparison tables](#4. Comparison tables)
+- [4. Comparison tables](#Comparison_tables)
 
 
 
@@ -33,7 +33,7 @@ The purpose of this project is to implement a Pac Man Autonomous Agent that can 
 Seven candidate techniques can be chosen to implement our agents. The model trained by Model-Based MDP, such as Policy Iteration and Value Iteration, could only be applied to the training map. In contrast, the model trained by Model-Free MDP could be applied to all maps. Because there are many different maps contained in this project, Model-Free MDP could be a better choice. We tried Monte-Carlo Tree Search, but it is hard to train a good model during each tournament because of the limited time between steps. Therefore, approximate Q-learning is then used to implement the offensive agent. A star algorithm, one of the Heuristic Search Algorithms, is suitable for small tasks. Finding the optimal strategy for the offensive agent using A star is infeasible duo to large search space with multi-tasking (eatDots, run, deposit), but it is a good choice to apply it to implement the defensive agent. Compared with other techniques, the search space A star is relatively small (only chase invaders), and a better result can be gained in a shorter time without training. Based on the analysis above, we finally decided to apply approximate Q-learning and A star algorithm to implement our agents.
 
 
-# 3. Approaches
+# Approaches
 
 ## 3.1 Approximate Q-learning
 ----
@@ -74,7 +74,7 @@ For example, if the agent wants to eat food, it only considers:
 * should I reverse for dots in another area (reverse)
 
 
-# 4. Comparison tables
+# Comparison_tables
 
 ## 4.1 Demo
 ----
